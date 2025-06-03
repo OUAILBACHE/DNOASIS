@@ -1,72 +1,63 @@
-# Embed the domain blocks into the full HTML structure
-
-full_html_page = f"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DNOASIS Domain Portfolio</title>
     <style>
-        body {{
+        body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             color: #333;
             margin: 0;
             padding: 0;
-        }}
-        header {{
+        }
+        header {
             background-color: #2c3e50;
             color: white;
             padding: 20px;
             text-align: center;
-        }}
-        .contact {{
+        }
+        .contact {
             background-color: #34495e;
             color: white;
             padding: 10px;
             text-align: center;
-        }}
-        .container {{
+        }
+        .container {
             max-width: 1000px;
             margin: auto;
             padding: 20px;
-        }}
-        .domain-list {{
+        }
+        .domain-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-        }}
-        .domain {{
+        }
+        .domain {
             background-color: white;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }}
-        .domain h3 {{
+        }
+        .domain h3 {
             margin-top: 0;
             color: #2980b9;
-        }}
-        .domain p {{
+        }
+        .domain p {
             margin: 5px 0;
-        }}
-        .domain a {{
-            text-decoration: none;
-            color: #2980b9;
-        }}
-        .domain a:hover {{
-            text-decoration: underline;
-        }}
-        footer {{
+        }
+        footer {
             background-color: #2c3e50;
             color: white;
             text-align: center;
             padding: 10px;
-        }}
-        @media(max-width: 600px) {{
-            .domain-list {{
+        }
+        @media(max-width: 600px) {
+            .domain-list {
                 grid-template-columns: 1fr;
-            }}
-        }}
+            }
+        }
     </style>
 </head>
 <body>
@@ -81,7 +72,39 @@ full_html_page = f"""<!DOCTYPE html>
 
     <div class="container">
         <div class="domain-list">
-            {full_html_snippet}
+    <div class="domain">
+        <h3><a href="https://vancouverguesthouse.com" target="_blank">vancouverguesthouse.com</a></h3>
+        <p><strong>Buy Now:</strong> $50</p>
+        <p><strong>Min Offer:</strong> $20</p>
+        <p><strong>Options:</strong> Lease to Own</p>
+    </div>
+    <div class="domain">
+        <h3><a href="https://vehicleinsurancetucson.com" target="_blank">vehicleinsurancetucson.com</a></h3>
+        <p><strong>Buy Now:</strong> $50</p>
+        <p><strong>Min Offer:</strong> $20</p>
+        <p><strong>Options:</strong> Lease to Own, Make Offer</p>
+    </div>
+    <div class="domain">
+        <h3><a href="https://waterloobarbershop.com" target="_blank">waterloobarbershop.com</a></h3>
+        <p><strong>Buy Now:</strong> $50</p>
+        <p><strong>Min Offer:</strong> $20</p>
+        <p><strong>Options:</strong> Lease to Own</p>
+    </div>
+    <div class="domain">
+        <h3><a href="https://workedat.com" target="_blank">workedat.com</a></h3>
+        <p><strong>Buy Now:</strong> $2691</p>
+        <p><strong>Min Offer:</strong> $1000</p>
+        <p><strong>Options:</strong> Lease to Own, Make Offer</p>
+    </div>
+    <div class="domain">
+        <h3><a href="https://heatingunderfloor.com" target="_blank">HeatingUnderfloor.com</a></h3>
+        <p><strong>Buy Now:</strong> $100</p>
+        <p><strong>Min Offer:</strong> $100</p>
+        <p><strong>Options:</strong> Lease to Own, Make Offer</p>
+    </div>
+    <!-- Repeat same pattern for remaining domains -->
+
+            <!-- Add more domains from your CSV as needed -->
         </div>
     </div>
 
@@ -90,11 +113,3 @@ full_html_page = f"""<!DOCTYPE html>
     </footer>
 </body>
 </html>
-"""
-
-# Save the HTML to a file
-output_path = "/mnt/data/DNOASIS_Domain_Portfolio.html"
-with open(output_path, "w", encoding="utf-8") as file:
-    file.write(full_html_page)
-
-output_path
