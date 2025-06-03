@@ -18,6 +18,19 @@
             padding: 20px;
             text-align: center;
         }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        .logo-container img {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
         .contact {
             background-color: #34495e;
             color: white;
@@ -84,6 +97,9 @@
             .domain-list {
                 grid-template-columns: 1fr;
             }
+            .logo-container img {
+                height: 30px;
+            }
         }
     </style>
 </head>
@@ -91,6 +107,12 @@
     <header>
         <h1>DNOASIS Domain Portfolio</h1>
         <p>Explore premium domains available for sale or lease</p>
+        <div class="logo-container">
+            <img src="https://sedo.com/favicon.ico" alt="Sedo Logo" title="Sedo">
+            <img src="https://www.godaddy.com/favicon.ico" alt="GoDaddy Logo" title="GoDaddy">
+            <img src="https://www.afternic.com/favicon.ico" alt="Afternic Logo" title="Afternic">
+            <img src="https://www.daaz.com/favicon.ico" alt="DAAZ Logo" title="DAAZ">
+        </div>
     </header>
 
     <div class="contact">
