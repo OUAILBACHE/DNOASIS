@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ouail Tabache | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      padding: 10px 25px;
+      background-color: #00ffc3;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #00cfa7;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .projects, .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      background: #111;
+    }
+    @media (min-width: 768px) {
+      .projects {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .card {
+        width: calc(50% - 20px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Ouail Tabache</h1>
+  <p>Support Analyst | Embedded Systems Enthusiast | Domain Investor</p>
+  <a href="#contact" class="btn">Contact Me</a>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I’m a technically skilled professional with a background in Embedded Systems, Linux, SQL, and customer support. Whether it’s solving real-time tech issues or managing server hardware, I bring both logic and creativity to the table.
+  </p>
+</section>
+
+<section id="projects">
+  <h2>My Projects & Ventures</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Dubai Supermarket Pécs</h3>
+      <p>Launched an online grocery business in Hungary with local delivery and digital ordering.</p>
+    </div>
+    <div class="card">
+      <h3>Domain Sales</h3>
+      <p>I manage and sell premium domain names including GoCarsRental.com, optimizecosts.com, and more.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Get In Touch</h2>
+  <div class="contact">
+    <div>Email: <a href="mailto:ouailtabache@gmail.com" style="color:#00ffc3;">ouailtabache@gmail.com</a></div>
+    <div>WhatsApp: <a href="https://wa.me/36306583981" style="color:#00ffc3;">+36 30 658 3981</a></div>
+    <div>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank" style="color:#00ffc3;">linkedin.com/in/yourprofile</a></div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Ouail Tabache — All rights reserved.
+</footer>
+
+</body>
+</html>
