@@ -3,453 +3,708 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNOASIS Domain Portfolio</title>
+    <title>DNOASIS Premium Domain Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             color: #333;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
+        
         header {
-            background-color: #2c3e50;
+            background: linear-gradient(135deg, var(--secondary), #1a252f);
             color: white;
-            padding: 20px;
+            padding: 30px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin: 10px 0 20px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            margin: 15px 0;
+            gap: 30px;
+            margin: 20px 0;
             flex-wrap: wrap;
         }
+        
         .logo-container img {
-            height: 40px;
+            height: 45px;
             width: auto;
             filter: brightness(0) invert(1);
-        }
-        .contact {
-            background-color: #34495e;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
-        .domain-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        .domain {
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
+        
+        .logo-container img:hover {
+            transform: scale(1.1);
+        }
+        
+        .contact-bar {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-item i {
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .domain-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 25px;
+        }
+        
+        .domain {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
         .domain:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
+        
         .domain h3 {
-            margin-top: 0;
-            color: #2980b9;
+            margin: 0 0 10px;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: 700;
         }
+        
         .domain p {
-            margin: 5px 0;
+            margin: 8px 0;
+            color: #555;
         }
+        
         .price {
             font-weight: bold;
-            color: #27ae60;
+            color: var(--success);
+            font-size: 1.3rem;
+            margin: 15px 0;
         }
+        
         .options {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 10px;
+            gap: 8px;
+            margin-top: 15px;
         }
+        
         .option-tag {
-            background-color: #3498db;
+            background: var(--primary);
             color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
+            padding: 5px 12px;
+            border-radius: 20px;
             font-size: 0.8em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
+        
+        .option-tag i {
+            font-size: 0.9em;
+        }
+        
+        .premium-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 35px;
+            transform: rotate(45deg);
+            font-size: 0.8em;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
         footer {
-            background-color: #2c3e50;
+            background: var(--secondary);
             color: white;
             text-align: center;
-            padding: 10px;
-            margin-top: 20px;
+            padding: 25px;
+            margin-top: 50px;
         }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
         .stats {
             font-size: 0.9em;
-            color: #7f8c8d;
+            color: #bdc3c7;
+            margin-top: 15px;
         }
-        @media(max-width: 600px) {
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            display: inline-block;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin: 0;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        @media(max-width: 768px) {
             .domain-list {
                 grid-template-columns: 1fr;
             }
+            
             .logo-container img {
-                height: 30px;
+                height: 35px;
+            }
+            
+            .contact-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>DNOASIS Domain Portfolio</h1>
-        <p>Explore premium domains available for sale or lease</p>
+        <h1>DNOASIS Premium Domains</h1>
+        <p class="subtitle">Exclusive digital assets for visionary brands</p>
         <div class="logo-container">
-            <img src="https://sedo.com/favicon.ico" alt="Sedo Logo" title="Sedo">
-            <img src="https://www.godaddy.com/favicon.ico" alt="GoDaddy Logo" title="GoDaddy">
-            <img src="https://www.afternic.com/favicon.ico" alt="Afternic Logo" title="Afternic">
-            <img src="https://www.daaz.com/favicon.ico" alt="DAAZ Logo" title="DAAZ">
+            <img src="https://sedo.com/favicon.ico" alt="Sedo Logo" title="Sedo Partner">
+            <img src="https://img1.wsimg.com/ux/godaddy-ux/logos/logo-dark.svg" alt="GoDaddy Logo" title="GoDaddy Partner">
+            <img src="https://www.daaz.com/favicon.ico" alt="DAAZ Logo" title="DAAZ Partner">
         </div>
     </header>
 
-    <div class="contact">
-        <p>📞 Europe: +36 30 653 981 | 📞 US: +1 (672) 763-1009 | 📧 Email: Mr.Ouail@Dnoasis.com</p>
+    <div class="contact-bar">
+        <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>Europe: +36 30 653 981</span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>US: +1 (672) 763-1009</span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>Mr.Ouail@Dnoasis.com</span>
+        </div>
     </div>
 
     <div class="container">
+        <div class="section-title">
+            <h2>Complete Domain Portfolio</h2>
+        </div>
+        
         <div class="domain-list">
             <div class="domain">
-                <h3><a href="https://vancouverguesthouse.com" target="_blank">vancouverguesthouse.com</a></h3>
-                <p><span class="price">Buy Now: $50</span> | Min Offer: $20</p>
+                <h3>vancouverguesthouse.com</h3>
+                <p>Buy Now Price: $50</p>
+                <p>Floor Price: $0</p>
+                <p>Min Offer: $30</p>
+              
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Jul 26, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://vehicleinsurancetucson.com" target="_blank">vehicleinsurancetucson.com</a></h3>
-                <p><span class="price">Buy Now: $50</span> | Min Offer: $20</p>
+                <h3>vehicleinsurancetucson.com</h3>
+                <p>Buy Now Price: $50</p>
+                <p>Floor Price: $0</p>
+                <p>Min Offer: $20</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Jul 31, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://waterloobarbershop.com" target="_blank">waterloobarbershop.com</a></h3>
-                <p><span class="price">Buy Now: $50</span> | Min Offer: $20</p>
+                <h3>waterloobarbershop.com</h3>
+                <p>Buy Now Price: $50</p>
+              
+                <p>Min Offer: $20</p>
+             
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Aug 14, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://workedat.com" target="_blank">workedat.com</a></h3>
-                <p><span class="price">Buy Now: $2,199</span> | Min Offer: $1,000</p>
+                <h3>workedat.com</h3>
+                <p>Buy Now Price: $2199</p>
+             
+                <p>Min Offer: $1300</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Aug 31, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://HeatingUnderfloor.com" target="_blank">HeatingUnderfloor.com</a></h3>
-                <p><span class="price">Buy Now: $100</span> | Min Offer: $100</p>
+                <h3>HeatingUnderfloor.com</h3>
+                <p>Buy Now Price: $100</p>
+               
+                <p>Min Offer: $100</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Aug 31, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://FacialMed.com" target="_blank">FacialMed.com</a></h3>
-                <p><span class="price">Buy Now: $2,199</span> | Min Offer: $1500</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>FacialMed.com</h3>
+                <p>Buy Now Price: $2190</p>
+               
+                <p>Min Offer: $1400</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own (10 mo)</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Sep 10, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://OptimizeCosts.com" target="_blank">OptimizeCosts.com</a></h3>
-                <p><span class="price">Buy Now: $1,088</span> | Min Offer: $780</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>OptimizeCosts.com</h3>
+                <p>Buy Now Price: $1088</p>
+                
+               
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Sep 15, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://GoCarsRental.com" target="_blank">GoCarsRental.com</a></h3>
-                <p><span class="price">Buy Now: $422</span> | Min Offer: $200</p>
+                <h3>GoCarsRental.com</h3>
+                <p>Buy Now Price: $422</p>
+                
+                <p>Min Offer: $100</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Sep 15, 2024 </p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://onezoon.com" target="_blank">onezoon.com</a></h3>
-                <p><span class="price">Buy Now: $450</span> | Min Offer: $300</p>
+                <h3>onezoon.com</h3>
+                <p>Buy Now Price: $450</p>
+                
+                <p>Min Offer: $300</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Nov 24, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://consultingoverseas.com" target="_blank">consultingoverseas.com</a></h3>
-                <p><span class="price">Buy Now: $1,088</span> | Min Offer: $100</p>
+                <h3>consultingoverseas.com</h3>
+                <p>Buy Now Price: $1088</p>
+               
+                <p>Views: 1</p>
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own (6 mo)</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Nov 24, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://growpalms.com" target="_blank">growpalms.com</a></h3>
-                <p><span class="price">Buy Now: $275</span> | Min Offer: $20</p>
+                <h3>growpalms.com</h3>
+                <p>Buy Now Price: $275</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Nov 27, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://perthcleaningservices.com" target="_blank">perthcleaningservices.com</a></h3>
-                <p><span class="price">Buy Now: $100</span> | Min Offer: $20</p>
+                <h3>perthcleaningservices.com</h3>
+                <p>Buy Now Price: $100</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Dec 4, 2024 </p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://LiveCoinPrice.com" target="_blank">LiveCoinPrice.com</a></h3>
-                <p><span class="price">Buy Now: $150</span> | Min Offer: $100</p>
+                <h3>LiveCoinPrice.com</h3>
+                <p>Buy Now Price: $150</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Dec 21, 2024 | Views: 6</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://CyberTrends.news" target="_blank">CyberTrends.news</a></h3>
-                <p><span class="price">Buy Now: $200</span> | Min Offer: $20</p>
+                <h3>CyberTrends.news</h3>
+                <p>Buy Now Price: $200</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Dec 21, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://swiftpaysystems.com" target="_blank">swiftpaysystems.com</a></h3>
-                <p><span class="price">Buy Now: $8,888</span> | Min Offer: $100 | Floor: $110</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>swiftpaysystems.com</h3>
+                <p>Buy Now Price: $8888</p>
+               
+                <p>Min Offer: $3500</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own (8 mo)</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Dec 30, 2024</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://gildlily.com" target="_blank">gildlily.com</a></h3>
-                <p><span class="price">Buy Now: $270</span> | Min Offer: $100 | Floor: $100</p>
+                <h3>gildlily.com</h3>
+                <p>Buy Now Price: $270</p>
+                
+                <p>Min Offer: $100</p>
+              
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Jan 2, 2025</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://tacomaplumbingcompany.com" target="_blank">tacomaplumbingcompany.com</a></h3>
-                <p><span class="price">Buy Now: $175</span> | Min Offer: $100</p>
+                <h3>tacomaplumbingcompany.com</h3>
+                <p>Buy Now Price: $175</p>
+               
+                <p>Min Offer: $120</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Jan 22, 2025</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://StockEon.com" target="_blank">StockEon.com</a></h3>
-                <p><span class="price">Buy Now: $1,588</span> | Min Offer: $699</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>StockEon.com</h3>
+                <p>Buy Now Price: $1588</p>
+            
+                <p>Min Offer: $800</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own (10 mo)</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Jan 24, 2025 | Views: 41</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://cuatasker.com" target="_blank">cuatasker.com</a></h3>
-                <p><span class="price">Buy Now: $500</span> </p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>cuatasker.com</h3>
+                <p>Buy Now Price: $500</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Jan 24, 2025</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://operatorxpert.com" target="_blank">operatorxpert.com</a></h3>
-                <p><span class="price">Buy Now: $5,888</span> </p>
+                 <div class="premium-badge">PREMIUM</div>
+                <h3>operatorxpert.com</h3>
+                <p>Buy Now Price: $5888</p>
+               
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own (10 mo)</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Jan 24, 2025</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://cuapilot.com" target="_blank">cuapilot.com</a></h3>
-                <p><span class="price">Buy Now: $1,578</span> | Min Offer: $20 | Floor: $300</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>cuapilot.com</h3>
+                <p>Buy Now Price: $1578</p>
+                <p>Min Offer: $500</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own (10 mo)</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Jan 24, 2025</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://TomProjects.com" target="_blank">TomProjects.com</a></h3>
-                <p><span class="price">Buy Now: $375</span> | Min Offer: $20 | Floor: $50</p>
+                <h3>TomProjects.com</h3>
+                <p>Buy Now Price: $375</p>
+               
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Jan 26, 2025 </p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://MillenniumCleaningServices.com" target="_blank">MillenniumCleaningServices.com</a></h3>
-                <p><span class="price">Buy Now: $475</span> | Min Offer: $20</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>MillenniumCleaningServices.com</h3>
+                <p>Buy Now Price: $475</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Feb 7, 2025 | Views: 2</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://worcestercleaningservices.com" target="_blank">worcestercleaningservices.com</a></h3>
-                <p><span class="price">Buy Now: $125</span> | Min Offer: $20</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>worcestercleaningservices.com</h3>
+                <p>Buy Now Price: $125</p>
+                
+                <p>Min Offer: $20</p>
+               
+               
+
+                <p>Views: 3</p>
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Feb 7, 2025 </p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://charlotteplumbingservice.com" target="_blank">charlotteplumbingservice.com</a></h3>
-                <p><span class="price">Buy Now: $188</span> | Min Offer: $20</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>charlotteplumbingservice.com</h3>
+                <p>Buy Now Price: $188</p>
+               
+                <p>Min Offer: $20</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Feb 8, 2025 </p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://paulplumber.com" target="_blank">paulplumber.com</a></h3>
-                <p><span class="price">Buy Now: $75</span> | Min Offer: $50</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>paulplumber.com</h3>
+                <p>Buy Now Price: $75</p>
+                
+                <p>Min Offer: $20</p>
+                /p>
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Feb 8, 2025</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://PrimeMovingCompany.com" target="_blank">PrimeMovingCompany.com</a></h3>
-                <p><span class="price">Buy Now: $1,475</span> | Min Offer: $799</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>PrimeMovingCompany.com</h3>
+                <p>Buy Now Price: $1475</p>
+                
+                <p>Min Offer: $700</p>
+               
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Feb 15, 2025</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://Igdeal.com" target="_blank">Igdeal.com</a></h3>
-                <p><span class="price">Buy Now: $1,388</span> | Min Offer: $888</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>Igdeal.com</h3>
+                <p>Buy Now Price: $1388</p>
+                
+                <p>Min Offer: $770</p>
+                <p>Date Added (UTC): Wed Feb 19 2025</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
                 </div>
-                <p class="stats">Added: Feb 19, 2025 | Views: 1</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://carrollservice.com" target="_blank">carrollservice.com</a></h3>
-                <p><span class="price">Buy Now: $688</span> | Min Offer: $260</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>carrollservice.com</h3>
+                <p>Buy Now Price: $688</p>
+                <p>Min Offer: $500</p>
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Apr 14, 2025 | Views: 1</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://elegantria.com" target="_blank">elegantria.com</a></h3>
-                <p><span class="price">Buy Now: $1,988</span> | Min Offer: $1099</p>
+                  <div class="premium-badge">PREMIUM</div>
+                <h3>elegantria.com</h3>
+                <p>Buy Now Price: $1988</p>
+                
+                <p>Lease to Own: Y (Max Period: 6)</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own (6 mo)</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: Apr 27, 2025 | Views: 1</p>
             </div>
-
+            
             <div class="domain">
-                <h3><a href="https://royalautoservices.com" target="_blank">royalautoservices.com</a></h3>
-                <p><span class="price">Buy Now: $688</span> | Min Offer: $100 | Floor: $240</p>
+                <h3>royalautoservices.com</h3>
+                <p>Buy Now Price: $688</p>
+                 <div class="premium-badge">PREMIUM</div>
+                <p>Min Offer: $100</p>
+                
                 <div class="options">
-                    <span class="option-tag">Buy Now</span>
-                    <span class="option-tag">Lease to Own (6 mo)</span>
-                    <span class="option-tag">Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-money-bill-wave"></i> Buy Now</span>
+                    <span class="option-tag"><i class="fas fa-tags"></i> Make Offer</span>
+                    <span class="option-tag"><i class="fas fa-handshake"></i> Lease to Own</span>
                 </div>
-                <p class="stats">Added: May 11, 2025 | Views: 64 | Leads: 1</p>
             </div>
         </div>
     </div>
 
     <footer>
-        &copy; 2025 DNOASIS. All rights reserved.
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p>© 2023 DNOASIS Domain Portfolio. All rights reserved.</p>
+            <p class="stats">Premium domains available for immediate purchase or lease</p>
+        </div>
     </footer>
 </body>
 </html>
