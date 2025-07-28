@@ -11,6 +11,8 @@ fetch('domains.json')
         if (priceElem) {
           priceElem.textContent = entry.price;
         }
+      } else {
+        console.warn(`Domain element not found for: ${entry.domain}`);
       }
     });
   })
