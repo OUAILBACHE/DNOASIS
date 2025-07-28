@@ -8,13 +8,12 @@ fetch('domains.json')
         // Update the price
         domainDiv.querySelector('.price-value').textContent = domainData.price;
 
-        // Update the link
+        // Update the link dynamically
         const link = domainDiv.querySelector('a');
-        link.href = domainData.link;
+        link.href = `https://${domainData.domain}`;
         link.textContent = domainData.domain;
       }
     });
   })
   .catch(err => console.error('Failed to load domains.json:', err));
-
 </script>
