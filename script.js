@@ -1,5 +1,5 @@
 <script>
-fetch('/domains.json') // Replace with the correct path
+fetch('domains.json') // Replace with the correct path
   .then(res => res.json())
   .then(data => {
     data.forEach(({ domain, price, min_offer }) => {
