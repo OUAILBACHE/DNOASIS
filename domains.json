@@ -1,12 +1,153 @@
 [
   {
     "domain": "WaterlooBarberShop.com",
-    "price": 149
+    "price": 49
   },
   {
     "domain": "SwiftPaySystems.com",
-    "price": 4994,
+    "price": 8888,
     "min_offer": 2500
+  },
+  {
+    "domain": "WorkedAt.com",
+    "price": 2199,
+    "min_offer": 1300
+  },
+  {
+    "domain": "HeatingUnderfloor.com",
+    "price": 100,
+    "min_offer": 100
+  },
+  {
+    "domain": "FacialMed.com",
+    "price": 2190,
+    "min_offer": 1400
+  },
+  {
+    "domain": "OptimizeCosts.com",
+    "price": 1088
+  },
+  {
+    "domain": "GoCarsRental.com",
+    "price": 422,
+    "min_offer": 100
+  },
+  {
+    "domain": "tampamovingservices.com",
+    "price": 375
+  },
+  {
+    "domain": "OneZoon.com",
+    "price": 450
+  },
+  {
+    "domain": "ConsultingOverseas.com",
+    "price": 1088
+  },
+  {
+    "domain": "GrowPalms.com",
+    "price": 275
+  },
+  {
+    "domain": "PerthCleaningServices.com",
+    "price": 100
+  },
+  {
+    "domain": "LiveCoinPrice.com",
+    "price": 150
+  },
+  {
+    "domain": "CyberTrends.news",
+    "price": 200
+  },
+  {
+    "domain": "GildLily.com",
+    "price": 270,
+    "min_offer": 100
+  },
+  {
+    "domain": "TacomaPlumbingCompany.com",
+    "price": 175,
+    "min_offer": 120
+  },
+  {
+    "domain": "StockEon.com",
+    "price": 1588,
+    "min_offer": 800
+  },
+  {
+    "domain": "CuaTasker.com",
+    "price": 500
+  },
+  {
+    "domain": "OperatorXpert.com",
+    "price": 5888
+  },
+  {
+    "domain": "CuaPilot.com",
+    "price": 1578,
+    "min_offer": 500
+  },
+  {
+    "domain": "TomProjects.com",
+    "price": 375
+  },
+  {
+    "domain": "MillenniumCleaningServices.com",
+    "price": 475
+  },
+  {
+    "domain": "WorcesterCleaningServices.com",
+    "price": 100
+  },
+  {
+    "domain": "CharlottePlumbingService.com",
+    "price": 100,
+    "min_offer": 20
+  },
+  {
+    "domain": "PaulPlumber.com",
+    "price": 75,
+    "min_offer": 20
+  },
+  {
+    "domain": "PrimeMovingCompany.com",
+    "price": 1475,
+    "min_offer": 700
+  },
+  {
+    "domain": "IgDeal.com",
+    "price": 1388,
+    "min_offer": 770
+  },
+  {
+    "domain": "CarrollService.com",
+    "price": 688,
+    "min_offer": 500
+  },
+  {
+    "domain": "ElegantRia.com",
+    "price": 1988
+  },
+  {
+    "domain": "Taamul.com",
+    "price": 1600
+  },
+  {
+    "domain": "zytheon.io",
+    "price": 799
+  },
+  {
+    "domain": "portlandoregoncabinets.com",
+    "price": 150
+  },
+  {
+    "domain": "QanooniAi.com",
+    "price": 350
+  },
+  {
+    "domain": "RoyalaviationServices.com",
+    "price": 375,
+    "min_offer": 250
   }
-  
 ]
