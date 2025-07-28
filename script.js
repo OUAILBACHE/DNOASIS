@@ -1,19 +1,19 @@
-<script>
-fetch('domains.json')
-  .then(res => res.json())
-  .then(domains => {
-    domains.forEach(domainData => {
-      const domainDiv = document.querySelector(`.domain[data-domain="${domainData.domain}"]`);
-      if (domainDiv) {
-        // Update the price
-        domainDiv.querySelector('.price-value').textContent = domainData.price;
-
-        // Update the link dynamically
-        const link = domainDiv.querySelector('a');
-        link.href = `https://${domainData.domain}`;
-        link.textContent = domainData.domain;
+fetch('./domains.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.json();
+  })
+  .then(data => {
+    data.forEach(entry => {
+      const domainElem = document.querySelector(`[data-domain="${entry.domain}"]`);
+      if (domainElem) {
+        const priceElem = domainElem.querySelector('.price-value');
+        if (priceElem) {
+          priceElem.textContent = entry.price;
+        }
       }
     });
   })
-  .catch(err => console.error('Failed to load domains.json:', err));
-</script>
+  .catch(error => {
+    console.error('Fetch error:', error);
+  });
