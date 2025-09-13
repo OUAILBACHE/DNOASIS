@@ -7,7 +7,7 @@ export function HeroSection() {
     <section className="py-20 bg-gradient-to-b from-card to-background">
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-5xl font-bold text-card-foreground mb-6 text-balance">
-          Premium Domain Names for Sale – Secure the Perfect Name Today
+          Secure the Perfect Name Today
         </h1>
         <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
           Discover premium domains with detailed analytics including pricing, CPC data, and search volume metrics to
@@ -26,19 +26,9 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">100+</div>
-            <div className="text-muted-foreground">Premium Domains</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">$500K+</div>
-            <div className="text-muted-foreground">Total Sales Volume</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">50+</div>
-            <div className="text-muted-foreground">Happy Customers</div>
-          </div>
+
+         
+        <div className="mt-8 text-sm text-muted-foreground">
         </div>
       </div>
     </section>

@@ -59,7 +59,7 @@ export default function ContactPage() {
                         <Mail className="h-6 w-6 text-primary" />
                         <div>
                           <h3 className="font-semibold text-foreground">Email</h3>
-                          <p className="text-muted-foreground">domains@domainhub.com</p>
+                          <p className="text-muted-foreground">Mr.ouail@dnoasis.com</p>
                           <p className="text-sm text-muted-foreground">We respond within 24 hours</p>
                         </div>
                       </div>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                         <MessageCircle className="h-6 w-6 text-primary" />
                         <div>
                           <h3 className="font-semibold text-foreground">WhatsApp</h3>
-                          <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                          <p className="text-muted-foreground">+1 365 2913 78 </p>
                           <p className="text-sm text-muted-foreground">Quick responses during business hours</p>
                         </div>
                       </div>
@@ -85,7 +85,7 @@ export default function ContactPage() {
                         <Phone className="h-6 w-6 text-primary" />
                         <div>
                           <h3 className="font-semibold text-foreground">Phone</h3>
-                          <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                          <p className="text-muted-foreground">+1 365 2913 78</p>
                           <p className="text-sm text-muted-foreground">Mon-Fri, 9AM-6PM EST</p>
                         </div>
                       </div>
